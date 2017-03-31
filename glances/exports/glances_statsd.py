@@ -59,6 +59,8 @@ class Export(GlancesExport):
 
     def init(self, prefix='glances'):
         """Init the connection to the Statsd server."""
+        import socket
+        prefix = socket.gethostname()
         if not self.export_enable:
             return None
         logger.info(
